@@ -2,11 +2,13 @@ Summary:     full screen text mode program for playing audio CD's
 Summary(de): Vollbildprogramm in Textmodus zum Abspielen von Audio-CDs
 Summary(fr): Programme en mode texte plein écran pour lire les CD audio.
 Summary(tr): Müzik CD'lerini çalmak için bir metin ekran programý
+Summary(pl): Pe³noekranowy, tekstowy program do odtwarzania p³yt CD
 Name:        cdp
 Version:     0.33
-Release:     11
+Release:     12
 Copyright:   GPL
 Group:       Applications/Sound
+Group(pl):   Aplikacje/D¼wiêk
 Source:      ftp://sunsite.unc.edu/pub/Linux/apps/sound/cdrom/curses/%{name}-%{version}.tgz
 Patch:       cdp-fsstnd.patch
 Patch1:      cdp-cdplay.patch
@@ -32,6 +34,10 @@ une version plein écran et une version en ligne de commande.
 Bu program, bilgisayarýnýzýn CDROM sürücüsünde müzik CD'lerini çalmanýza
 yarar. Komut modunda veya tam ekran arayüzüyle kullanabilirsiniz.
 
+%description -l pl
+Ten program pozwala na odtwarzanie p³yt CD w twoim napêdzie. Zawiera
+zarówno wersjê z tekstowym interfejsem jak i bez niego.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -44,7 +50,7 @@ make COMP_OPT="$RPM_OPT_FLAGS -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/usr/{bin,man/man1}
+install -d $RPM_BUILD_ROOT/usr/{bin,man/man1}
 
 make DESTDIR=$RPM_BUILD_ROOT install
 gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
@@ -57,6 +63,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644, root,  man) /usr/man/man1/*
 
 %changelog
+* Tue Jan 26 1999 Micha³ Kuratczyk <kurkens@polbox.com>
+  [0.33-12]
+- added pl translations
+- replace "mkdir -p" with "install -d"
+
 * Sun Nov 29 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.33-11]
 - added gzipping man pages,
