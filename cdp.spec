@@ -1,11 +1,11 @@
 Summary:	full screen text mode program for playing audio CD's
 Summary(de):	Vollbildprogramm in Textmodus zum Abspielen von Audio-CDs
-Summary(fr):	Programme en mode texte plein écran pour lire les CD audio.
-Summary(tr):	Müzik CD'lerini çalmak için bir metin ekran programý
+Summary(fr):	Programme en mode texte plein écran pour lire les CD audio
 Summary(pl):	Pe³noekranowy, tekstowy program do odtwarzania p³yt CD
+Summary(tr):	Müzik CD'lerini çalmak için bir metin ekran programý
 Name:		cdp
 Version:	0.33
-Release:	14
+Release:	16
 Copyright:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D¼wiêk
@@ -16,6 +16,10 @@ Patch2:		cdp-ncurses.patch
 Patch3:		cdp-glibc.patch
 Patch4:		cdp-strchr.patch
 Patch5:		cdp-FHS20.patch
+Patch6:		cdp-glibc2.patch
+Patch7:		cdp-changer.patch
+Patch8:		cdp-keys.patch
+BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
