@@ -59,8 +59,9 @@ gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%attr(755, root, root) /usr/bin/*
-%attr(644, root,  man) /usr/man/man1/*
+%defattr(644,root,root,755)
+%attr(755,root,root) /usr/bin/*
+/usr/man/man1/*
 
 %changelog
 * Tue Jan 26 1999 Micha³ Kuratczyk <kurkens@polbox.com>
