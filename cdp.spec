@@ -19,7 +19,7 @@ Patch5:		cdp-FHS20.patch
 Patch6:		cdp-changer.patch
 Patch7:		cdp-keys.patch
 BuildRequires:	ncurses-devel >= 5.0
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This program allows you to play audio CD's on your computers CDROM drive.
