@@ -1,20 +1,20 @@
-Summary:     full screen text mode program for playing audio CD's
-Summary(de): Vollbildprogramm in Textmodus zum Abspielen von Audio-CDs
-Summary(fr): Programme en mode texte plein écran pour lire les CD audio.
-Summary(tr): Müzik CD'lerini çalmak için bir metin ekran programý
-Summary(pl): Pe³noekranowy, tekstowy program do odtwarzania p³yt CD
-Name:        cdp
-Version:     0.33
-Release:     12
-Copyright:   GPL
-Group:       Applications/Sound
-Group(pl):   Aplikacje/D¼wiêk
-Source:      ftp://sunsite.unc.edu/pub/Linux/apps/sound/cdrom/curses/%{name}-%{version}.tgz
-Patch:       cdp-fsstnd.patch
-Patch1:      cdp-cdplay.patch
-Patch2:      cdp-ncurses.patch
-Patch3:      cdp-glibc.patch
-BuildRoot:   /tmp/%{name}-%{version}-root
+Summary:	full screen text mode program for playing audio CD's
+Summary(de):	Vollbildprogramm in Textmodus zum Abspielen von Audio-CDs
+Summary(fr):	Programme en mode texte plein écran pour lire les CD audio.
+Summary(tr):	Müzik CD'lerini çalmak için bir metin ekran programý
+Summary(pl):	Pe³noekranowy, tekstowy program do odtwarzania p³yt CD
+Name:		cdp
+Version:	0.33
+Release:	12
+Copyright:	GPL
+Group:		Applications/Sound
+Group(pl):	Aplikacje/D¼wiêk
+Source:		ftp://sunsite.unc.edu/pub/Linux/apps/sound/cdrom/curses/%{name}-%{version}.tgz
+Patch0:		cdp-fsstnd.patch
+Patch1:		cdp-cdplay.patch
+Patch2:		cdp-ncurses.patch
+Patch3:		cdp-glibc.patch
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 This program allows you to play audio CD's on your computers CDROM drive. It
@@ -30,13 +30,13 @@ bildschirm-, einmal als Befehlszeilen-Version.
 Ce programme permet de jouer des CDs audio sur le lecteur CDROM. Il offre
 une version plein écran et une version en ligne de commande.
 
-%description -l tr
-Bu program, bilgisayarýnýzýn CDROM sürücüsünde müzik CD'lerini çalmanýza
-yarar. Komut modunda veya tam ekran arayüzüyle kullanabilirsiniz.
-
 %description -l pl
 Ten program pozwala na odtwarzanie p³yt CD w twoim napêdzie. Zawiera
 zarówno wersjê z tekstowym interfejsem jak i bez niego.
+
+%description -l tr
+Bu program, bilgisayarýnýzýn CDROM sürücüsünde müzik CD'lerini çalmanýza
+yarar. Komut modunda veya tam ekran arayüzüyle kullanabilirsiniz.
 
 %prep
 %setup -q
