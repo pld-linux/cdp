@@ -5,20 +5,21 @@ Summary(pl):	Pe³noekranowy, tekstowy program do odtwarzania p³yt CD
 Summary(tr):	Müzik CD'lerini çalmak için bir metin ekran programý
 Name:		cdp
 Version:	0.33
-Release:	21
+Release:	22
 License:	GPL
 Group:		Applications/Sound
+Group(de):	Applikationen/Laut
 Group(pl):	Aplikacje/D¼wiêk
 Source0:	ftp://sunsite.unc.edu/pub/Linux/apps/sound/cdrom/curses/%{name}-%{version}.tgz
-Patch0:		cdp-fsstnd.patch
-Patch1:		cdp-cdplay.patch
-Patch2:		cdp-ncurses.patch
-Patch3:		cdp-glibc.patch
-Patch4:		cdp-strchr.patch
-Patch5:		cdp-FHS20.patch
-Patch6:		cdp-changer.patch
-Patch7:		cdp-keys.patch
-Patch8:		cdp-nonblock.patch
+Patch0:		%{name}-fsstnd.patch
+Patch1:		%{name}-cdplay.patch
+Patch2:		%{name}-ncurses.patch
+Patch3:		%{name}-glibc.patch
+Patch4:		%{name}-strchr.patch
+Patch5:		%{name}-FHS20.patch
+Patch6:		%{name}-changer.patch
+Patch7:		%{name}-keys.patch
+Patch8:		%{name}-nonblock.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -58,14 +59,13 @@ kullanabilirsiniz.
 %patch8 -p1
 
 %build
-%{__make} COMP_OPT="$RPM_OPT_FLAGS -Wall"
+%{__make} COMP_OPT="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{%{_bindir},%{_mandir}/man1}
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
