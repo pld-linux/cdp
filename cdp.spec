@@ -5,7 +5,7 @@ Summary(pl):	Pe³noekranowy, tekstowy program do odtwarzania p³yt CD
 Summary(tr):	Müzik CD'lerini çalmak için bir metin ekran programý
 Name:		cdp
 Version:	0.33
-Release:	23
+Release:	25
 License:	GPL
 Group:		Applications/Sound
 Group(de):	Applikationen/Laut
@@ -20,6 +20,7 @@ Patch5:		%{name}-FHS20.patch
 Patch6:		%{name}-changer.patch
 Patch7:		%{name}-keys.patch
 Patch8:		%{name}-nonblock.patch
+Patch9:         %{name}-bo_fix.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -57,6 +58,7 @@ kullanabilirsiniz.
 %patch6 -p1
 %patch7 -p1
 %patch8 -p1
+%patch9 -p1
 
 %build
 %{__make} COMP_OPT="%{rpmcflags} -Wall"
