@@ -8,9 +8,8 @@ Version:	0.33
 Release:	25
 License:	GPL
 Group:		Applications/Sound
-Group(de):	Applikationen/Laut
-Group(pl):	Aplikacje/D¼wiêk
 Source0:	ftp://sunsite.unc.edu/pub/Linux/apps/sound/cdrom/curses/%{name}-%{version}.tgz
+# Source0-md5: 9bf61177d9fba16ddd4c647a182039fc
 Patch0:		%{name}-fsstnd.patch
 Patch1:		%{name}-cdplay.patch
 Patch2:		%{name}-ncurses.patch
@@ -20,7 +19,7 @@ Patch5:		%{name}-FHS20.patch
 Patch6:		%{name}-changer.patch
 Patch7:		%{name}-keys.patch
 Patch8:		%{name}-nonblock.patch
-Patch9:         %{name}-bo_fix.patch
+Patch9:		%{name}-bo_fix.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -65,9 +64,10 @@ kullanabilirsiniz.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{%{_bindir},%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
