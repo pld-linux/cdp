@@ -8,8 +8,6 @@ Version:	0.33
 Release:	23
 License:	GPL
 Group:		Applications/Sound
-Group(de):	Applikationen/Laut
-Group(pl):	Aplikacje/D¼wiêk
 Source0:	ftp://sunsite.unc.edu/pub/Linux/apps/sound/cdrom/curses/%{name}-%{version}.tgz
 Patch0:		%{name}-fsstnd.patch
 Patch1:		%{name}-cdplay.patch
