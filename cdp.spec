@@ -9,7 +9,7 @@ Release:	17
 License:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D¼wiêk
-Source:		ftp://sunsite.unc.edu/pub/Linux/apps/sound/cdrom/curses/%{name}-%{version}.tgz
+Source0:	ftp://sunsite.unc.edu/pub/Linux/apps/sound/cdrom/curses/%{name}-%{version}.tgz
 Patch0:		cdp-fsstnd.patch
 Patch1:		cdp-cdplay.patch
 Patch2:		cdp-ncurses.patch
@@ -22,26 +22,27 @@ BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This program allows you to play audio CD's on your computers CDROM drive.
-It provides a version with a full screen interface as well as a command
-line version.
+This program allows you to play audio CD's on your computers CDROM
+drive. It provides a version with a full screen interface as well as a
+command line version.
 
 %description -l de
-Mit diesem Programm können Sie die auf dem CD-ROM-Laufwerk Ihres Computers
-Audio-CDs abspielen. Es liegt in zwei Versionen vor: Einmal als Voll-
-bildschirm-, einmal als Befehlszeilen-Version.
+Mit diesem Programm können Sie die auf dem CD-ROM-Laufwerk Ihres
+Computers Audio-CDs abspielen. Es liegt in zwei Versionen vor: Einmal
+als Voll- bildschirm-, einmal als Befehlszeilen-Version.
 
 %description -l fr
-Ce programme permet de jouer des CDs audio sur le lecteur CDROM. Il offre
-une version plein écran et une version en ligne de commande.
+Ce programme permet de jouer des CDs audio sur le lecteur CDROM. Il
+offre une version plein écran et une version en ligne de commande.
 
 %description -l pl
 Ten program pozwala na odtwarzanie p³yt CD w twoim napêdzie. Zawiera
 zarówno wersjê z tekstowym interfejsem jak i bez niego.
 
 %description -l tr
-Bu program, bilgisayarýnýzýn CDROM sürücüsünde müzik CD'lerini çalmanýza
-yarar. Komut modunda veya tam ekran arayüzüyle kullanabilirsiniz.
+Bu program, bilgisayarýnýzýn CDROM sürücüsünde müzik CD'lerini
+çalmanýza yarar. Komut modunda veya tam ekran arayüzüyle
+kullanabilirsiniz.
 
 %prep
 %setup -q
