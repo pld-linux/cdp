@@ -16,9 +16,8 @@ Patch2:		cdp-ncurses.patch
 Patch3:		cdp-glibc.patch
 Patch4:		cdp-strchr.patch
 Patch5:		cdp-FHS20.patch
-Patch6:		cdp-glibc2.patch
-Patch7:		cdp-changer.patch
-Patch8:		cdp-keys.patch
+Patch6:		cdp-changer.patch
+Patch7:		cdp-keys.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -52,6 +51,8 @@ yarar. Komut modunda veya tam ekran arayüzüyle kullanabilirsiniz.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
+%patch7 -p1
 
 %build
 make COMP_OPT="$RPM_OPT_FLAGS -Wall"
