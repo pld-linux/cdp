@@ -9,7 +9,7 @@ Release:	26
 License:	GPL
 Group:		Applications/Sound
 Source0:	ftp://sunsite.unc.edu/pub/Linux/apps/sound/cdrom/curses/%{name}-%{version}.tgz
-# Source0-md5: 9bf61177d9fba16ddd4c647a182039fc
+# Source0-md5:	9bf61177d9fba16ddd4c647a182039fc
 Patch0:		%{name}-fsstnd.patch
 Patch1:		%{name}-cdplay.patch
 Patch2:		%{name}-ncurses.patch
