@@ -53,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/usr/{bin,man/man1}
 
 make DESTDIR=$RPM_BUILD_ROOT install
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man1/*
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -61,7 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) /usr/bin/*
-/usr/man/man1/*
+%{_mandir}/man1/*
 
 %changelog
 * Tue Jan 26 1999 Micha³ Kuratczyk <kurkens@polbox.com>
