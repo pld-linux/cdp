@@ -1,4 +1,4 @@
-Summary:	full screen text mode program for playing audio CD's
+Summary:	Full screen text mode program for playing audio CD's
 Summary(de):	Vollbildprogramm in Textmodus zum Abspielen von Audio-CDs
 Summary(fr):	Programme en mode texte plein écran pour lire les CD audio
 Summary(pl):	Pe³noekranowy, tekstowy program do odtwarzania p³yt CD
