@@ -1,0 +1,29 @@
+diff -ru cdp-0.33.old/cdp.c cdp-0.33/cdp.c
+--- cdp-0.33.old/cdp.c	Fri Sep 17 00:20:00 1999
++++ cdp-0.33/cdp.c	Fri Sep 17 00:32:42 1999
+@@ -391,11 +391,12 @@
+ 
+                 case 'q' :
+                 case 'Q' :
++                case '0' :
+                 default:
+                     break;
+             }
+         }
+-    }  while  ( key != 'q'  &&  key != 'Q' );
++    }  while  ( key != 'q'  &&  key != 'Q' && key != '0' );
+     displayTTYResetColor( &dispInfo );
+ }
+ 
+diff -ru cdp-0.33.old/getline.c cdp-0.33/getline.c
+--- cdp-0.33.old/getline.c	Fri Nov 10 01:10:42 1995
++++ cdp-0.33/getline.c	Fri Sep 17 00:27:40 1999
+@@ -160,6 +160,8 @@
+     if   ( info.pw == NULL ) 
+         return   GETLINE_ERR;
+ 
++    if (!lpszDef) 
++	  return GETLINE_ERR;
+     info.text = malloc( strSize + strlen( lpszDef ) + 256 );
+     if  ( info.text == NULL )
+         return   GETLINE_ERR;

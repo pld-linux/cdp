@@ -1,0 +1,148 @@
+--- cdp-0.33/cdp.h.changer	Fri Nov 10 01:10:42 1995
++++ cdp-0.33/cdp.h	Thu Sep  9 20:48:14 1999
+@@ -36,7 +36,7 @@
+     BOOL                     fSilentMode;
+     BOOL                     fNoAutoPlay;
+     BOOL                     fCDPlayMode;
+-    BOOL                     fCmdTable, fNoFastIn, fCmdVersion;
++    BOOL                     fCmdTable, fNoFastIn, fCmdVersion, fCmdStop;
+     BOOL                     fNoVolumeMixer;
+     int                      startTrack;
+ }  modeInfoType;
+--- cdp-0.33/cdp.c.changer	Thu Sep  9 20:48:14 1999
++++ cdp-0.33/cdp.c	Thu Sep  9 20:50:31 1999
+@@ -210,7 +210,10 @@
+ {
+     dispInfo.fNoFollowMode = ! dispInfo.fNoFollowMode;
+     if  ( ! dispInfo.fNoFollowMode   &&  cdStatus.cur_track != dispInfo.view_track ) {
+-        cd_play( &cdStatus, dispInfo.view_track, 0, cdStatus.cur_ntracks + 1);
++        if ( !cdStatus.thiscd.trk[dispInfo.view_track - 1].data )
++            cd_play( &cdStatus, dispInfo.view_track, 0, cdStatus.cur_ntracks + 1);
++        else
++            dispInfo.view_track = cdStatus.cur_track;
+     }
+ }
+ 
+@@ -226,13 +229,28 @@
+ }
+ 
+ 
++/* Skip data tracks in either direction */
++static inline int wrapAround( int cur_track, int delta )
++{
++    int new_track;
++
++    new_track = normalizeTrackNum( cur_track + delta );
++    while ( cdStatus.thiscd.trk[new_track-1].data ) {
++        new_track = normalizeTrackNum( new_track + delta );
++        if ( new_track == cur_track )
++            break;
++    }
++    return new_track;
++}
++
++
+ static void       handleTrackMoveKey( displayInfoType      * pInfo,
+                                       int                    delta )
+ {
+     if  ( pInfo->fNoFollowMode ) {
+         pInfo->view_track = normalizeTrackNum( pInfo->view_track + delta );
+     } else {
+-        cd_play( &cdStatus, normalizeTrackNum( cdStatus.cur_track + delta ), 0,
++        cd_play( &cdStatus, wrapAround( cdStatus.cur_track, delta ), 0,
+                  cdStatus.cur_ntracks + 1);
+     }
+ }
+@@ -521,6 +539,7 @@
+             if  ( strcmp( str, "stop" ) == 0 ) {
+                 pInfoMode->fCmdVersion = TRUE; 
+                 pInfoMode->fNoAutoPlay = TRUE;
++                pInfoMode->fCmdStop    = TRUE;
+                 continue;
+             } 
+             if  ( strcmp( str, "play" ) == 0 ) {
+@@ -568,9 +587,14 @@
+     }
+ 
+     cdStatus.cur_track = 1;        
+-    if  ( pMode->fCmdTable ) 
++    if  ( pMode->fCmdTable ) {
+         printTOC();
+-
++	if ( cdStatus.cur_cdmode == CDPLAY )
++	    myExit( 0 );
++    }
++    if  ( pMode->fCmdStop )
++	cd_stop ( &cdStatus );
++    
+     if  ( ! pMode->fNoAutoPlay ) {
+         if   ( pMode->startTrack > 0   
+                &&  pMode->startTrack <= cdStatus.cur_ntracks + 1 )
+--- cdp-0.33/hardware.c.changer	Thu Sep  9 20:48:14 1999
++++ cdp-0.33/hardware.c	Thu Sep  9 20:48:14 1999
+@@ -344,6 +344,24 @@
+ 
+ 
+ /*
++ * track_frame( pStatus, frame)
++ *
++ * Calculate track number from frame number
++ */
++int track_frame( cdStatusType *pStatus, int frame )
++{
++    int i;
++
++    for ( i = 0; i < pStatus->thiscd.ntracks-1; i++ ) {
++        if( frame < pStatus->thiscd.trk[i+1].start )
++            return i+1;
++    }
++
++    return pStatus->thiscd.ntracks;
++}
++
++
++/*
+  * play_chunk( pStatus, start, end)
+  *
+  * Play the CD from one position to another (both in frames.)
+@@ -351,6 +369,7 @@
+ static void    play_chunk(  cdStatusType     * pStatus, int   start, int     end )
+ {
+     struct cdrom_msf        msf;
++    struct cdrom_ti         ti;
+ 
+     if  ( ! pStatus->fTOCRead  ||  pStatus->cd_fd < 0 )
+         return;
+@@ -371,12 +390,30 @@
+         return;
+     }
+     if (ioctl (pStatus->cd_fd, CDROMPLAYMSF, &msf)) {
+-        printf ("play(%d,%d)\n", start, end);
++/*        printf ("play(%d,%d)\n", start, end);
+         printf ("msf = %d:%d:%d %d:%d:%d\n",
+                 msf.cdmsf_min0, msf.cdmsf_sec0, msf.cdmsf_frame0,
+                 msf.cdmsf_min1, msf.cdmsf_sec1, msf.cdmsf_frame1);
+         perror ("CDROMPLAYMSF");
+-        return;
++        return;*/
++
++        /* Fall back to track index playing, because some
++           "enhanced" CDs won't work with CDROMPLAYMSF */
++        ti.cdti_trk0 = track_frame(pStatus, start);
++        ti.cdti_ind0 = 0;
++        ti.cdti_trk1 = track_frame(pStatus, end);
++        ti.cdti_ind1 = 0;
++
++        /* Skip to the next audio track (autoplay game CDs) */
++        while ( pStatus->thiscd.trk[ti.cdti_trk0 - 1].data) {
++            ti.cdti_trk0++;
++            if ( ti.cdti_trk0 > ti.cdti_trk1 )
++                return;
++        }
++        if (ioctl (pStatus->cd_fd, CDROMPLAYTRKIND, &ti)) {
++            perror ("CDROMPLAYTRKIND");
++            return;
++        }
+     }
+ }
+ 
