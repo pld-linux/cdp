@@ -1,0 +1,11 @@
+--- v1/cdp.c	Thu Apr  1 01:18:57 2004
++++ v2/cdp.c	Thu Apr  1 01:18:50 2004
+@@ -154,7 +154,7 @@
+     for  ( ind = 0; ind < cdStatus.thiscd.ntracks; ind++ ) {
+         trk = &cdStatus.thiscd.trk[ ind ];
+         if  ( trk->songname != NULL ) {
+-            sprintf( buffer, "%s", trk->songname );
++            snprintf( buffer,sizeof(buffer), "%s", trk->songname );
+         } else
+             buffer[ 0 ] = 0;
+ 
