@@ -5,7 +5,7 @@ Summary(pl):	Pe³noekranowy, tekstowy program do odtwarzania p³yt CD
 Summary(tr):	Müzik CD'lerini çalmak için bir metin ekran programý
 Name:		cdp
 Version:	0.33
-Release:	22
+Release:	23
 License:	GPL
 Group:		Applications/Sound
 Group(de):	Applikationen/Laut
