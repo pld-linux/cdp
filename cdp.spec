@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Sun Nov 29 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.33-11]
-- added gziping man pages,
+- added gzipping man pages,
 - changed Buildroot to /tmp/%%{name}-%%{version}-root,
 - added using %%{name} and %%{version} in Source,
 - added using $RPM_OPT_FLAGS during compile,
