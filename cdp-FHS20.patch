@@ -1,0 +1,12 @@
+diff -ur cdp-0.33.orig/Makefile cdp-0.33/Makefile
+--- cdp-0.33.orig/Makefile	Tue Jul 13 19:03:29 1999
++++ cdp-0.33/Makefile	Tue Jul 13 19:09:29 1999
+@@ -58,7 +58,7 @@
+ 	chmod 644 cdp.1.Z
+ 	install -m 755 -s cdp $(DESTDIR)/usr/bin
+ 	ln -sf cdp $(DESTDIR)/usr/bin/cdplay
+-	install -m 644 cdp.1 $(DESTDIR)/usr/man/man1
++	install -m 644 cdp.1 $(DESTDIR)/usr/share/man/man1
+ 
+ clean:
+ 	rm -f cdp cdp.1.Z *.o core *~

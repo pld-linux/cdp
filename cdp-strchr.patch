@@ -1,0 +1,13 @@
+diff -ur cdp-0.33.orig/database.c cdp-0.33/database.c
+--- cdp-0.33.orig/database.c	Fri Nov 10 07:10:42 1995
++++ cdp-0.33/database.c	Tue Jul 13 19:08:03 1999
+@@ -33,8 +33,7 @@
+ 
+ void                   *malloc (),
+                        *realloc ();
+-char                   *strchr (),
+-                       *getenv ();
++char                   *getenv ();
+ 
+ int                     suppress_locking = 0;	/* Turn off locking of datafile (dangerous) */
+ 
