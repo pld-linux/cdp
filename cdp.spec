@@ -59,7 +59,7 @@ kullanabilirsiniz.
 %patch8 -p1
 
 %build
-%{__make} COMP_OPT="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g} -Wall"
+%{__make} COMP_OPT="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS} -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
