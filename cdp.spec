@@ -56,13 +56,13 @@ kullanabilirsiniz.
 %patch7 -p1
 
 %build
-make COMP_OPT="$RPM_OPT_FLAGS -Wall"
+%{__make} COMP_OPT="$RPM_OPT_FLAGS -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{%{_bindir},%{_mandir}/man1}
 
-make DESTDIR=$RPM_BUILD_ROOT install
+%{__make} DESTDIR=$RPM_BUILD_ROOT install
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/*
 
 %clean
