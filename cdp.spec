@@ -62,32 +62,3 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
-
-%changelog
-* Tue Jan 26 1999 Micha³ Kuratczyk <kurkens@polbox.com>
-  [0.33-12]
-- added pl translations
-- replace "mkdir -p" with "install -d"
-
-* Sun Nov 29 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [0.33-11]
-- added gzipping man pages,
-- changed Buildroot to /tmp/%%{name}-%%{version}-root,
-- added using %%{name} and %%{version} in Source,
-- added using $RPM_OPT_FLAGS during compile,
-- added full %attr description in %files.
-
-* Sat Aug 15 1998 Jeff Johnson
-- build root
-
-* Fri Apr 24 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Wed Apr 15 1998 Erik Troan <ewt@redhat.com>
-- built against new ncurses
-
-* Tue Oct 21 1997 Otto Hammersmith <otto@redhat.com>
-- fixed src url
-
-* Thu Jul 10 1997 Erik Troan <ewt@redhat.com>
-- built against glibc
