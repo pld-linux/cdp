@@ -5,8 +5,8 @@ Summary(pl):	Pe³noekranowy, tekstowy program do odtwarzania p³yt CD
 Summary(tr):	Müzik CD'lerini çalmak için bir metin ekran programý
 Name:		cdp
 Version:	0.33
-Release:	16
-Copyright:	GPL
+Release:	17
+License:	GPL
 Group:		Applications/Sound
 Group(pl):	Aplikacje/D¼wiêk
 Source:		ftp://sunsite.unc.edu/pub/Linux/apps/sound/cdrom/curses/%{name}-%{version}.tgz
@@ -22,9 +22,9 @@ BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
-This program allows you to play audio CD's on your computers CDROM drive. It
-provides a version with a full screen interface as well as a command line
-version.
+This program allows you to play audio CD's on your computers CDROM drive.
+It provides a version with a full screen interface as well as a command
+line version.
 
 %description -l de
 Mit diesem Programm können Sie die auf dem CD-ROM-Laufwerk Ihres Computers
