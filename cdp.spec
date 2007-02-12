@@ -1,8 +1,8 @@
 Summary:	Full screen text mode program for playing audio CD's
-Summary(de):	Vollbildprogramm in Textmodus zum Abspielen von Audio-CDs
-Summary(fr):	Programme en mode texte plein écran pour lire les CD audio
-Summary(pl):	Pe³noekranowy, tekstowy program do odtwarzania p³yt CD
-Summary(tr):	Müzik CD'lerini çalmak için bir metin ekran programý
+Summary(de.UTF-8):   Vollbildprogramm in Textmodus zum Abspielen von Audio-CDs
+Summary(fr.UTF-8):   Programme en mode texte plein Ã©cran pour lire les CD audio
+Summary(pl.UTF-8):   PeÅ‚noekranowy, tekstowy program do odtwarzania pÅ‚yt CD
+Summary(tr.UTF-8):   MÃ¼zik CD'lerini Ã§almak iÃ§in bir metin ekran programÄ±
 Name:		cdp
 Version:	0.33
 Release:	26
@@ -28,22 +28,22 @@ This program allows you to play audio CD's on your computers CDROM
 drive. It provides a version with a full screen interface as well as a
 command line version.
 
-%description -l de
-Mit diesem Programm können Sie die auf dem CD-ROM-Laufwerk Ihres
+%description -l de.UTF-8
+Mit diesem Programm kÃ¶nnen Sie die auf dem CD-ROM-Laufwerk Ihres
 Computers Audio-CDs abspielen. Es liegt in zwei Versionen vor: Einmal
 als Voll- bildschirm-, einmal als Befehlszeilen-Version.
 
-%description -l fr
+%description -l fr.UTF-8
 Ce programme permet de jouer des CDs audio sur le lecteur CDROM. Il
-offre une version plein écran et une version en ligne de commande.
+offre une version plein Ã©cran et une version en ligne de commande.
 
-%description -l pl
-Ten program pozwala na odtwarzanie p³yt CD w twoim napêdzie. Zawiera
-zarówno wersjê z tekstowym interfejsem jak i bez niego.
+%description -l pl.UTF-8
+Ten program pozwala na odtwarzanie pÅ‚yt CD w twoim napÄ™dzie. Zawiera
+zarÃ³wno wersjÄ™ z tekstowym interfejsem jak i bez niego.
 
-%description -l tr
-Bu program, bilgisayarýnýzýn CDROM sürücüsünde müzik CD'lerini
-çalmanýza yarar. Komut modunda veya tam ekran arayüzüyle
+%description -l tr.UTF-8
+Bu program, bilgisayarÄ±nÄ±zÄ±n CDROM sÃ¼rÃ¼cÃ¼sÃ¼nde mÃ¼zik CD'lerini
+Ã§almanÄ±za yarar. Komut modunda veya tam ekran arayÃ¼zÃ¼yle
 kullanabilirsiniz.
 
 %prep
