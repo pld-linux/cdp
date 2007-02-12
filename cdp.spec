@@ -1,8 +1,8 @@
 Summary:	Full screen text mode program for playing audio CD's
-Summary(de.UTF-8):   Vollbildprogramm in Textmodus zum Abspielen von Audio-CDs
-Summary(fr.UTF-8):   Programme en mode texte plein écran pour lire les CD audio
-Summary(pl.UTF-8):   Pełnoekranowy, tekstowy program do odtwarzania płyt CD
-Summary(tr.UTF-8):   Müzik CD'lerini çalmak için bir metin ekran programı
+Summary(de.UTF-8):	Vollbildprogramm in Textmodus zum Abspielen von Audio-CDs
+Summary(fr.UTF-8):	Programme en mode texte plein écran pour lire les CD audio
+Summary(pl.UTF-8):	Pełnoekranowy, tekstowy program do odtwarzania płyt CD
+Summary(tr.UTF-8):	Müzik CD'lerini çalmak için bir metin ekran programı
 Name:		cdp
 Version:	0.33
 Release:	26
