@@ -5,7 +5,7 @@ Summary(pl.UTF-8):	Pełnoekranowy, tekstowy program do odtwarzania płyt CD
 Summary(tr.UTF-8):	Müzik CD'lerini çalmak için bir metin ekran programı
 Name:		cdp
 Version:	0.33
-Release:	26
+Release:	27
 License:	GPL
 Group:		Applications/Sound
 Source0:	ftp://sunsite.unc.edu/pub/Linux/apps/sound/cdrom/curses/%{name}-%{version}.tgz
