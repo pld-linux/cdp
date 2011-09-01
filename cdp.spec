@@ -5,7 +5,7 @@ Summary(pl.UTF-8):	Pełnoekranowy, tekstowy program do odtwarzania płyt CD
 Summary(tr.UTF-8):	Müzik CD'lerini çalmak için bir metin ekran programı
 Name:		cdp
 Version:	0.33
-Release:	28
+Release:	29
 License:	GPL
 Group:		Applications/Sound
 Source0:	ftp://sunsite.unc.edu/pub/Linux/apps/sound/cdrom/curses/%{name}-%{version}.tgz
@@ -20,6 +20,7 @@ Patch6:		%{name}-changer.patch
 Patch7:		%{name}-keys.patch
 Patch8:		%{name}-nonblock.patch
 Patch9:		%{name}-bo_fix.patch
+Patch10:	%{name}-getline.patch
 BuildRequires:	ncurses-devel >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -58,6 +59,7 @@ kullanabilirsiniz.
 %patch7 -p1
 %patch8 -p1
 %patch9 -p1
+%patch10 -p1
 
 %build
 %{__make} COMP_OPT="%{rpmcflags} -Wall"
